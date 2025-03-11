@@ -1,5 +1,6 @@
 import React from "react";
 import astro from "../Images/alien.png";
+import BookingSystem from "./BookingSystem";
 
 const DateBookingSection = () => {
   const TodaysDate = new Date().toLocaleDateString("en-GB", {
@@ -8,21 +9,6 @@ const DateBookingSection = () => {
     year: "numeric",
   });
 
-  const generateTimeSlots = () => {
-    let slots = [];
-    let startHour = 9;
-    let endHour = 22;
-
-    for (let hour = startHour; hour <= endHour; hour++) {
-      let period = hour < 12 ? "AM" : "PM";
-      let formattedHour = hour % 12 || 12;
-      slots.push(`${formattedHour}:00 ${period}`);
-    }
-
-    return slots;
-  };
-
-  const timeSlots = generateTimeSlots();
   return (
     <section id="book-a-seat" className="py-10 relative">
       <span className="absolute top-10 left-10 w-32 h-32 opacity-20 -z-10">
@@ -39,16 +25,7 @@ const DateBookingSection = () => {
             <p className="font-bold">{TodaysDate}</p>
           </div>
         </div>
-        <div className="booking-wrapper grid grid-cols-2 md:grid-cols-5 gap-4">
-          {timeSlots.map((slot, index) => (
-            <button
-              key={index}
-              className="border border-gray-300 p-2 rounded-lg text-center hover:bg-baseRed duration-300"
-            >
-              {slot}
-            </button>
-          ))}
-        </div>
+        <BookingSystem />
       </div>
     </section>
   );
