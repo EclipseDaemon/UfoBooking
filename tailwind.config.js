@@ -14,7 +14,7 @@ export default {
         themewidth: "1536px",
       },
       backgroundImage: {
-        heroimg: "url('./src/Images/mainbg.jpg')",
+        heroimg: "url('./src/Images/heroImg.jpg')",
       },
     },
   },
