@@ -13,9 +13,9 @@ export default {
       maxWidth: {
         themewidth: "1536px",
       },
-      backgroundImage: {
-        heroimg: "url('./src/Images/heroImg.jpg')",
-      },
+      // backgroundImage: {
+      //   heroimg: "url('./src/Images/heroImg.jpg')",
+      // },
     },
   },
   plugins: [flowbite.plugin()],

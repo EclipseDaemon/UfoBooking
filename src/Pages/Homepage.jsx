@@ -2,12 +2,16 @@ import React from "react";
 import DateBookingSection from "../Components/DateBookingSection";
 import NewWaySection from "../Components/NewWaySection";
 import ContactUs from "../Components/ContactUs";
+import bg from "../Images/heroImg.jpg";
 
 const Homepage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="h-[390px] md:h-[500px] bg-heroimg bg-center bg-cover relative">
+      <section
+        className="h-[390px] md:h-[500px]  bg-center bg-cover relative"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
         <div className="bg-black absolute top-0 right-0 w-full h-full opacity-50" />
         <div className="main-container relative z-10 flex flex-col gap-3 justify-center items-center h-full w-full">
           <p className="text-xl md:text-2xl text-center">Welcome To The</p>
