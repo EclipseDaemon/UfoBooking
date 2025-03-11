@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const BookingSystem = () => {
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -72,45 +73,55 @@ const BookingSystem = () => {
       </div>
 
       {/* Modal Form */}
-      {isFormOpen && (
-        <div
-          className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-6"
-          onClick={closeForm}
-        >
-          <div
-            className="relative bg-baseBlue p-5 rounded-lg shadow-lg max-w-lg w-full flex flex-col gap-5"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {isFormOpen && (
+          <motion.div
+            className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={closeForm}
           >
-            <button
-              className="absolute top-2 right-4"
-              onClick={() => closeForm()}
+            <motion.div
+              className="relative bg-baseBlue p-5 rounded-lg shadow-lg max-w-lg w-full flex flex-col gap-5"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            <h2 className="text-lg text-center">Book Slot</h2>
-            <p className="text-center">
-              Selected Time: <strong>{selectedSlot}</strong>
-            </p>
-            <form className="flex flex-col gap-5" onSubmit={handleForm}>
-              <input
-                type="text"
-                placeholder="Enter your name"
-                className="w-full p-2 border rounded text-baseBlue"
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Enter your mobile number"
-                className="w-full p-2 border rounded text-baseBlue"
-                required
-              />
-              <button className="themebutton" type="submit">
-                Book Slot
+              <button
+                className="absolute top-2 right-4"
+                onClick={() => closeForm()}
+              >
+                <i className="fa-solid fa-xmark"></i>
               </button>
-            </form>
-          </div>
-        </div>
-      )}
+              <h2 className="text-lg text-center">Book Slot</h2>
+              <p className="text-center">
+                Selected Time: <strong>{selectedSlot}</strong>
+              </p>
+              <form className="flex flex-col gap-5" onSubmit={handleForm}>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full p-2 border rounded text-baseBlue"
+                  required
+                />
+                <input
+                  type="tel"
+                  placeholder="Enter your mobile number"
+                  className="w-full p-2 border rounded text-baseBlue"
+                  required
+                />
+                <button className="themebutton" type="submit">
+                  Book Slot
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
