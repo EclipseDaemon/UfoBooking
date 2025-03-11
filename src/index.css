@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 3px; /* Adjust as needed */
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #03071e; /* Light gray */
+  border-radius: 0px !important;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #555; /* Dark gray */
+  border-radius: 0px;
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #03071e;
+  color: white;
+  font-family: "Outfit", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Afacad Flux", sans-serif;
+}
+
+.themebutton {
+  background-color: #6a040f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition-duration: 0.3s;
+}
+.themebutton:hover {
+  background-color: #dc2f02;
+}
+
+.nav_link {
+  color: white !important;
+  transition-duration: 0.3s;
+  border: 0 !important;
+}
+
+.nav_link:hover {
+  color: #dc2f02 !important;
+}
+
+[data-testid="flowbite-footer-brand"] span {
+  color: white;
+}
+
+.heading-main {
+  position: relative;
+}
+
+.main-container {
+  @apply max-w-themewidth mx-auto px-4;
+}
+
+.main-heading {
+  @apply text-2xl md:text-4xl font-semibold text-center mb-10;
+}
